@@ -91,6 +91,17 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColor(1.1, 1.8, 2.2);
     grid.setScale(2,1,4);
     grid.setPosition(0,0,-grid.scl.get(2) + 1);
+    grid.setObjectsTexture(new Texture("tutorial"));
+    grid.objectsTexture.setColsRows(1.0,1.0);
+    proj_desc = new GameObject(new ObjectMesh(), grid.objectsTexture);
+    proj_desc.subTexPos = 0;
+    proj_desc.setScale(2,1,1);
+    proj_desc.setRotation(90,-90,0);
+    proj_desc.setPosition(grid.scl.get(0)+1, 1, -4.5);
+    proj_desc.parametricT = -2;
+    proj_desc.setColorVec(grid.getColor());
+    grid.setObjects([proj_desc]);
+
 
     // 1 main
     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
@@ -254,7 +265,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/SkeletalEngine";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/SkeletalEngine";
     angle = 30;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -315,7 +326,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/Hex";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/Hex";
     angle = 60;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -376,7 +387,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/ComplexPlane";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/Complex-Transforms";
     angle = 90;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -387,7 +398,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     corners = parentGrid.getCorners();
     edge = new GraphEdge(corners.topLeft, corners.topRight, true);
     worldGraph.makeAdjacent(11,12, edge);
-    grid.setObjectsTexture(new Texture("complexPlane"));
+    grid.setObjectsTexture(new Texture("complexTransform"));
     grid.objectsTexture.setColsRows(2.0,2.0);
     proj_desc = new GameObject(new ObjectMesh(), grid.objectsTexture);
     proj_desc.subTexPos = 0;
@@ -437,7 +448,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/Neural-Network";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/Neural-Network";
     angle = 60;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -498,7 +509,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/FinalValley";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/TheFinalValley";
     angle = 90;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -559,7 +570,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/Mathril";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/Mathril";
     angle = 60;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -620,7 +631,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://github.com/Twins-Diwakar-Sharma/WebsitePasswordManager";
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/WebsitePasswordManager";
     angle = 90;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
@@ -766,66 +777,14 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     proj_skills.setColorVec(parentGrid.getColor());
     grid.setObjects([proj_desc, proj_skills]);
     
-    //25 Mettl
-    worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(24);
-    grid = worldGraph.getGridObject(25);
-    grid.setColor(2.6, 0.5, 1.5);
-    grid.setScale(1,1,5);
-    angle = 30;
-    grid.rotate(angle,0,0);
-    angle = angle * radConv;
-    grid.setPosition(0,0,-parentGrid.scl.get(2));
-    adder = new Vec3(0,grid.scl.get(2) * Math.sin(angle), - grid.scl.get(2) * Math.cos(angle));
-    grid.pos = Vec3.add(grid.pos, adder); 
-    grid.convertToWorld(parentGrid);
-    corners = grid.getCorners();
-    edge = new GraphEdge(corners.botLeft, corners.botRight, true);
-    worldGraph.makeAdjacent(24,25, edge);
-
-    //26 
-    worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(25);
-    grid = worldGraph.getGridObject(26);
-    grid.setColorVec(parentGrid.getColor());
-    grid.setScale(2,1,2);
-    grid.special = true;
-    angle = -15;
-    grid.rotate(angle,0,0);
-    angle = angle * radConv;
-    grid.setPosition(0,0,-parentGrid.scl.get(2));
-    adder = new Vec3(0, grid.scl.get(2) * Math.sin(angle), - grid.scl.get(2) * Math.cos(angle));
-    grid.pos = Vec3.add(grid.pos, adder); 
-    grid.convertToWorld(parentGrid);
-    corners = parentGrid.getCorners();
-    edge = new GraphEdge(corners.topLeft, corners.topRight, false);
-    worldGraph.makeAdjacent(25,26, edge);
-    grid.setObjectsTexture(new Texture("mettl"));
-    grid.objectsTexture.setColsRows(2.0,1.0);
-    proj_desc = new GameObject(new ObjectMesh(), grid.objectsTexture);
-    proj_desc.subTexPos = 0;
-    proj_desc.setScale(2,1,1);
-    proj_desc.setRotation(90,0,0);
-    proj_desc.setPosition(0, 1, -grid.scl.get(2)-1);
-    proj_desc.setColorVec(parentGrid.getColor());
-    proj_desc.convertToWorld(grid);
-    proj_skills = new GameObject(new ObjectMesh(), grid.objectsTexture);
-    proj_skills.subTexPos = 1;
-    proj_skills.setScale(2,1,1);
-    proj_skills.setRotation(90,-90,0);
-    proj_skills.setPosition(grid.scl.get(2)+1, 1, 0);
-    proj_skills.convertToWorld(grid);
-    proj_skills.setColorVec(parentGrid.getColor());
-    grid.setObjects([proj_desc, proj_skills]);
-
     ///////////////////////////////////////////////////////////////////////////////////
     /********************************** RESEARCH ***********************************/
     //////////////////////////////////////////////////////////////////////////////////
 
-    // 27 Base Research
+    // 25 Base Research
     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
     parentGrid = worldGraph.getGridObject(5);
-    grid = worldGraph.getGridObject(27);
+    grid = worldGraph.getGridObject(25);
     grid.setColor(0.6, 2.5, 2.0);
     grid.setScale(3,1,5);
     angle = 30;
@@ -837,12 +796,12 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.convertToWorld(parentGrid);
     corners = grid.getCorners();
     edge = new GraphEdge(corners.botLeft, corners.botRight, true);
-    worldGraph.makeAdjacent(5,27, edge);
+    worldGraph.makeAdjacent(5,25, edge);
 
-    // 28 Vector
+    // 26 Vector
     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(27);
-    grid = worldGraph.getGridObject(28);
+    parentGrid = worldGraph.getGridObject(25);
+    grid = worldGraph.getGridObject(26);
     grid.setColor(2.6, 2.2, 1.0);
     grid.setScale(1,1,3);
     angle = -15;
@@ -854,12 +813,12 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.convertToWorld(parentGrid);
     corners = grid.getCorners();
     edge = new GraphEdge(corners.botLeft, corners.botRight, false);
-    worldGraph.makeAdjacent(27, 28, edge);
+    worldGraph.makeAdjacent(25, 26, edge);
 
-    // 29
+    // 27
     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(28);
-    grid = worldGraph.getGridObject(29);
+    parentGrid = worldGraph.getGridObject(26);
+    grid = worldGraph.getGridObject(27);
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
@@ -873,7 +832,7 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.convertToWorld(parentGrid);
     corners = parentGrid.getCorners();
     edge = new GraphEdge(corners.topLeft, corners.topRight, true);
-    worldGraph.makeAdjacent(28,29, edge);
+    worldGraph.makeAdjacent(26,27, edge);
     grid.setObjectsTexture(new Texture("vector"));
     grid.objectsTexture.setColsRows(1.0,1.0);
     proj_desc = new GameObject(new ObjectMesh(), grid.objectsTexture);
@@ -885,32 +844,32 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     proj_desc.convertToWorld(grid);
     grid.setObjects([proj_desc]);
 
-    // 30 Moment Of Inertia 
-    worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(27);
-    grid = worldGraph.getGridObject(30);
-    grid.setColor(0.6, 1.5, 2.5);
-    grid.setScale(1,1,3);
-    angle = -15;
+    //28 Fractal
+     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
+    parentGrid = worldGraph.getGridObject(6);
+    grid = worldGraph.getGridObject(28);
+    grid.setColor(1.9, 2.2, 0.4);
+    grid.setScale(1,1,4);
+    angle = 60;
     grid.rotate(angle,-90,0);
     angle = angle * radConv;
-    grid.setPosition(parentGrid.scl.get(0),0,-3);
+    grid.setPosition(parentGrid.scl.get(0),0,-7);
     adder = new Vec3(grid.scl.get(2) * Math.cos(angle), grid.scl.get(2) * Math.sin(angle), 0);
     grid.pos = Vec3.add(grid.pos, adder); 
     grid.convertToWorld(parentGrid);
     corners = grid.getCorners();
-    edge = new GraphEdge(corners.botLeft, corners.botRight, false);
-    worldGraph.makeAdjacent(27, 30, edge);
-
-    // 31 
+    edge = new GraphEdge(corners.botLeft, corners.botRight, true);
+    worldGraph.makeAdjacent(6,28, edge);
+   
+    //29 
     worldGraph.vertices.push(new GraphVertex(new GridObject(gridMesh)));
-    parentGrid = worldGraph.getGridObject(30);
-    grid = worldGraph.getGridObject(31);
+    parentGrid = worldGraph.getGridObject(28);
+    grid = worldGraph.getGridObject(29);
     grid.setColorVec(parentGrid.getColor());
     grid.setScale(2,1,2);
     grid.special = true;
-    grid.link = "https://link.springer.com/chapter/10.1007/978-3-031-07012-9_6";
-    angle = 30;
+    grid.link = "https://github.com/Twins-Divyanshu-Sharma/Fractal-Shader";
+    angle = 45;
     grid.rotate(angle,0,0);
     angle = angle * radConv;
     grid.setPosition(0,0,-parentGrid.scl.get(2));
@@ -919,9 +878,9 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     grid.convertToWorld(parentGrid);
     corners = parentGrid.getCorners();
     edge = new GraphEdge(corners.topLeft, corners.topRight, true);
-    worldGraph.makeAdjacent(30,31, edge);
-    grid.setObjectsTexture(new Texture("inertia"));
-    grid.objectsTexture.setColsRows(1.0,1.0);
+    worldGraph.makeAdjacent(28,29, edge);
+    grid.setObjectsTexture(new Texture("fractal"));
+    grid.objectsTexture.setColsRows(2.0,2.0);
     proj_desc = new GameObject(new ObjectMesh(), grid.objectsTexture);
     proj_desc.subTexPos = 0;
     proj_desc.setScale(2,1,1);
@@ -929,7 +888,21 @@ function createWorld(gridMesh){ // at each new gridObject, keep normal in mind
     proj_desc.setPosition(0, 1, -grid.scl.get(2)-1);
     proj_desc.setColorVec(parentGrid.getColor());
     proj_desc.convertToWorld(grid);
-    grid.setObjects([proj_desc]);
+    proj_thumb = new GameObject(new ObjectMesh(), grid.objectsTexture);
+    proj_thumb.subTexPos = 1;
+    proj_thumb.setScale(2,1,1);
+    proj_thumb.rotate(90,90,0);
+    proj_thumb.setColorVec(parentGrid.getColor());
+    proj_thumb.setPosition(-grid.scl.get(0)-1, 1, 0);
+    proj_thumb.convertToWorld(grid);
+    proj_skills = new GameObject(new ObjectMesh(), grid.objectsTexture);
+    proj_skills.subTexPos = 2;
+    proj_skills.setScale(2,1,1);
+    proj_skills.setRotation(90,-90,0);
+    proj_skills.setPosition(grid.scl.get(2)+1, 1, 0);
+    proj_skills.convertToWorld(grid);
+    proj_skills.setColorVec(parentGrid.getColor());
+    grid.setObjects([proj_desc, proj_thumb, proj_skills]);
 
 
 }

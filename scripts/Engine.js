@@ -28,7 +28,7 @@ class Engine {
 
     this.forward = 0;
     this.strafe = 0;
-    this.speed = 0.2;
+    this.speed = 0.15;
     this.rotx = 0;
     this.roty = 0;
     this.mouseSpeed = 0.1;
@@ -77,6 +77,9 @@ class Engine {
     this.gridAnimT = 0.0;
     this.gridAnimTDelta = 0.01;
 
+
+    this.objects = this.selectedVertex.gridObject.objects;
+    this.objectsTexture = this.selectedVertex.gridObject.objectsTexture;
   }
 
   loop =()=> {

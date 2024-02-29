@@ -1,8 +1,7 @@
 class Mesh{
 
   constructor(){
-
-  }
+ }
 
   generate =(vertexData, indices)=> {
 
